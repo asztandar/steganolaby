@@ -1,0 +1,10 @@
+@import "./variables.css";
+body{
+    margin: 0;
+    background-color: var(--primary-bg);
+    padding: 42px 206px 10px 206px;
+}
+
+main{
+    
+}
