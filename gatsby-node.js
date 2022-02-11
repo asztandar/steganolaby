@@ -4,7 +4,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       alias: {
         "@images": path.resolve(__dirname, "src/images"),
-        
+        "@styles": path.resolve(__dirname, "src/styles"),
       }
     }
   });
