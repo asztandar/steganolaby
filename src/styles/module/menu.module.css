@@ -1,3 +1,4 @@
+@import "../variables.css";
 .menu > ul {
     display: flex;
     flex-direction: row;
@@ -13,8 +14,13 @@
   .menu a {
     color: #fff;
     font-size: 16px;
+    text-decoration: none;
   }
   
   .menu  a:hover{
-      color: #fdd430;
+      color: var(--hover-link-color);
+  }
+
+  .menu .active_link{
+    color: var(--active-link-color);
   }

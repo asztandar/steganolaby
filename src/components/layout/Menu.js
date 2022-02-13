@@ -31,7 +31,7 @@ const Menu = () => {
             <ul>
                 {links.map(link => (
                     <li key={link.url}>
-                        <Link to={link.url} title={link.title}>{link.text}</Link>
+                        <Link to={link.url} title={link.title} activeClassName={classess.active_link}>{link.text}</Link>
                     </li>
                 ))}
             </ul>
