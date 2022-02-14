@@ -1,0 +1,9 @@
+.not_found{
+    display: flex;
+    justify-content: center;
+    height: 79vh;
+}
+
+.not_found img{
+    width: 80%;
+}
