@@ -1,0 +1,36 @@
+@import "../variables.css";
+
+.button{
+    padding: 15px 30px 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.button:hover{
+    transform: scale(1.2);
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.button_1{
+    background-color: var(--second-bg);
+}
+
+.button_1 a{
+    color: var(--third-text-color);
+}
+   
+.button_2{
+    background-color: var(--primary-bg);
+}
+.button_2 a{
+    color: var(--primary-text-color);
+}
+

@@ -1,0 +1,29 @@
+@import "../variables.css";
+.introduction{
+    background-color: var(--second-bg);
+    height: 100%;
+
+    padding-left: var(--main-padding-left);
+    padding-right: var(--main-padding-right);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.introduction h1{
+    color: var(--second-text-color);
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.introduction img{
+    width: 400px;
+    height: 280px;
+}
+
+.introduction p{
+    text-align: center;
+    margin-top: 20px;
+}

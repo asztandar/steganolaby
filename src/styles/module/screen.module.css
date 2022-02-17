@@ -1,0 +1,27 @@
+@import "../variables.css";
+.article_header{
+    width: 100%;
+    height: calc(100vh - 40px - var(--main-padding-top)); /* 100vh - header height - body padding */
+    background-color: var(--primary-bg);
+}
+
+.article_1{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--second-bg);
+}
+
+.article_2{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-bg);
+}
+
+.article_footer{
+
+}
+
+.article_header_footer{
+    width: 100vw;
+    height: calc(100vh - 51px - var(--main-padding-top) - var(--main-padding-bottom) - 60px); /* 100vh - header - body top padding - footer - body bottom padding */
+}

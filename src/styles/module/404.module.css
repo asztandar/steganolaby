@@ -1,9 +1,11 @@
 .not_found{
     display: flex;
     justify-content: center;
-    height: 79vh;
+    /* height: 79vh; */
+    height: 100%;
 }
 
 .not_found img{
     width: 80%;
+    height: 70%;
 }

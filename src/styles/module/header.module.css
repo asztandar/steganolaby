@@ -5,4 +5,10 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-bg);
+    /* background-color: aqua; */
+    height: 51px;
+    padding-top: var(--main-padding-top);
+    padding-left: var(--main-padding-left);
+    padding-bottom: var(--main-padding-bottom);
+    padding-right: var(--main-padding-right);
   }
