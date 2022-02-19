@@ -1,0 +1,51 @@
+.card{
+    text-align: center;
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 40px 20px 20px 20px;
+    transition: ease-in all 0.5s;
+    margin-bottom: 30px;
+    box-shadow: #ddd 0px 0px 10px;
+    color: #fff;
+    width: 25%;
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card img{
+    width: 70%;
+    height: 100px;
+}
+
+.card h1{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    display: block;
+    font-weight: 500;
+    width: auto;
+}
+
+.card p{
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.card_1{
+    color: var(--primary-text-color)
+}
+.card_1:hover{
+    background-color: #7009ce;
+    
+}
+
+.card_2{
+    color: var(--second-text-color);
+}
+.card_2:hover{
+    background-color: #7009ce;
+    color: var(--primary-text-color);
+}

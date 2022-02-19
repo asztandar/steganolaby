@@ -1,11 +1,9 @@
 @import "../variables.css";
 .introduction{
     background-color: var(--second-bg);
-    height: 100%;
-
+    min-height: inherit;
     padding-left: var(--main-padding-left);
     padding-right: var(--main-padding-right);
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,6 +14,7 @@
     color: var(--second-text-color);
     font-size: 45px;
     font-weight: bold;
+    margin-top: -60px;
 }
 
 .introduction img{
@@ -26,4 +25,31 @@
 .introduction p{
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 576px) {
+    .introduction{
+        padding-left: var(--padding-left-small);
+        padding-right: var(--padding-right-small);
+        background-color: blueviolet;
+        min-height: inherit;
+        margin-top: -50px;
+    }
+    .introduction h1{
+        font-size: 30px;
+        text-align: center;
+    }
+    .introduction p{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    
 }

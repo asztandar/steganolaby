@@ -9,11 +9,12 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "devmob": "gatsby develop -H 0.0.0.0 -p 8080",
+    "devmob": "gatsby develop -H 0.0.0.0",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "world": "lt --port 8000 --subdomain adam"
   },
   "dependencies": {
     "classnames": "^2.3.1",

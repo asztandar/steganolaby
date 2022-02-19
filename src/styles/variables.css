@@ -14,5 +14,17 @@
     --main-padding-left: 200px;
     --main-padding-right: 200px;
 
+    --padding-left-small: 20px;
+    --padding-right-small: 20px;
+
+
+    --padding-left-medium: 40px;
+    --padding-right-medium: 40px;
+
+
+    --padding-left-large: 70px;
+    --padding-right-large: 70px;
+
+
     
 }

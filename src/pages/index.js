@@ -2,6 +2,8 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import Layout from "../components/layout/Layout";
 import Screen from "../components/Screen";
+import EncodeIndex from "../components/Screen/EncodeIndex";
+import DecodeIndex from "../components/Screen/DecodeIndex";
 import Introduction from "../components/Screen/Introduction";
 import Welcome from "../components/Screen/Welcome";
 
@@ -18,6 +20,12 @@ const IndexPage = () => {
             </Screen>
             <Screen order={1} id="introduction">
                 <Introduction />
+            </Screen>
+            <Screen order={2} id="encode_index">
+                <EncodeIndex />
+            </Screen>
+            <Screen order={4} id="decode_index">
+                <DecodeIndex />
             </Screen>
         </Layout>
     );

@@ -1,5 +1,5 @@
 @import "../variables.css";
-.header{
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -11,4 +11,34 @@
     padding-left: var(--main-padding-left);
     padding-bottom: var(--main-padding-bottom);
     padding-right: var(--main-padding-right);
-  }
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding-top: var(--main-padding-top);
+        padding-left: var(--padding-left-small);
+        padding-bottom: var(--main-padding-bottom);
+        padding-right: var(--padding-right-small);
+        background-color: rgb(143, 95, 175);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .header {
+        padding-top: var(--main-padding-top);
+        padding-left: var(--padding-left-medium);
+        padding-bottom: var(--main-padding-bottom);
+        padding-right: var(--padding-right-medium);
+        background-color: yellow;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .header {
+        padding-top: var(--main-padding-top);
+        padding-left: var(--padding-left-medium);
+        padding-bottom: var(--main-padding-bottom);
+        padding-right: var(--padding-right-medium);
+        background-color: red;
+    }
+}

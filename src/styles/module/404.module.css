@@ -1,11 +1,15 @@
 .not_found{
     display: flex;
     justify-content: center;
+    align-items: center;
     /* height: 79vh; */
-    height: 100%;
+    height: calc(
+        100vh - 51px - var(--main-padding-top) - var(--main-padding-bottom) -
+            60px
+    ); /* 100vh - header - body top padding - footer - body bottom padding */
 }
 
 .not_found img{
-    width: 80%;
-    height: 70%;
+    width: 90%;
+    height: 80%;
 }
