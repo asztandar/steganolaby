@@ -14,7 +14,7 @@ const Introduction = (props) => {
                 każdego piksela na bity odpowiadające treści ukrywanej
                 wiadomości.
             </p>
-            <Button order={2} title="ZAKODOWYWANIE" text="ZAKODOWYWANIE" navigateTo="encode" />
+            <Button order={2} title="ZAKODOWYWANIE" text="ZAKODOWYWANIE" navigateTo="encode_index" />
         </div>
     );
 };
