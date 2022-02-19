@@ -23,14 +23,14 @@ a{
     background-color: var(--second-bg);
 }
 
-.button_1 a{
+a .button_1{
     color: var(--third-text-color);
 }
    
 .button_2{
     background-color: var(--primary-bg);
 }
-.button_2 a{
+a .button_2{
     color: var(--primary-text-color);
 }
 
