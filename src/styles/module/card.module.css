@@ -49,3 +49,22 @@
     background-color: #7009ce;
     color: var(--primary-text-color);
 }
+
+
+@media (max-width: 576px) {
+    .card{
+        width: 100%;
+        padding: 4px 2px 2px 2px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+    .card{
+        width: 100%;
+        padding: 4px 2px 2px 2px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    
+}

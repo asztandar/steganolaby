@@ -13,7 +13,7 @@
   
   .menu a {
     color: #fff;
-    font-size: 16px;
+    font-size: 24px;
     text-decoration: none;
   }
   
@@ -73,17 +73,16 @@
   .menuMobile{
     display: none;
     width: 100%;
-    height: 90vh;
-    /* background-color: var(--primary-bg); */
-    background-color: aqua;
+    height: calc(100vh - 51px - var(--main-padding-top) - var(--main-padding-bottom) );  /*height = 100vh -  header height - header padding top - header padding bottom*/
+    background-color: var(--primary-bg);
     z-index: 999;
     position: absolute;
-    top: 75px;
+    top: calc(51px + var(--main-padding-top) + var(--main-padding-bottom));
     left: 0;
   }
   
   
-  @media only screen and (max-width: 843px) {
+  @media only screen and (max-width: 1200px) {
     header nav .menuScreen {
       display: none;
     }
@@ -91,4 +90,11 @@
     .hamburger_icon {
       display: block;
     }
+  }
+  @media only screen and (orientation: landscape) and (max-width: 1024px) {
+    .menuMobile ul {
+      gap: 20px;
+      width: 90%;
+    }
+
   }

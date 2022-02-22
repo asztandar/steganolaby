@@ -15,16 +15,16 @@ const IndexPage = () => {
                 <meta charSet="utf-8" />
                 <title>SteganoLaby - Strona główna</title>
             </Helmet>
-            <Screen order={0} id="welcome">
+            <Screen order="header" id="welcome">
                 <Welcome order={1} />
             </Screen>
-            <Screen order={1} id="introduction">
+            <Screen order="second" id="introduction">
                 <Introduction />
             </Screen>
-            <Screen order={2} id="encode_index">
+            <Screen order="primary" id="encode_index">
                 <EncodeIndex />
             </Screen>
-            <Screen order={4} id="decode_index">
+            <Screen order="footer_second" id="decode_index">
                 <DecodeIndex />
             </Screen>
         </Layout>

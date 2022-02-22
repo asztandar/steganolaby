@@ -6,7 +6,7 @@ import image from "../images/404.svg"
 const NotFoundPage = () => {
   return (
     <Layout>
-      <Screen order={3}>
+      <Screen order="header_footer">
         <article className={classess.not_found}>
           <img src={image} alt="404" />
         </article>

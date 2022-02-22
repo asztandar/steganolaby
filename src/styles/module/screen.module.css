@@ -1,34 +1,39 @@
 @import "../variables.css";
 .article_header {
     width: 100%;
-    /* height: auto; */
     min-height: calc(
-        100vh - 40px - var(--main-padding-top)
+        100vh - 51px - var(--main-padding-top) - var(--main-padding-bottom)
     ); /* 100vh - header height - body padding */
     background-color: var(--primary-bg);
 }
 
-.article_1 {
+.article_primary {
     width: 100%;
-    height: auto;
-    min-height: 100vh;
-    background-color: var(--second-bg);
-}
-
-.article_2 {
-    width: 100%;
-    height: auto;
     min-height: 100vh;
     background-color: var(--primary-bg);
 }
 
-.article_footer {
+.article_second {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--second-bg);
+}
+
+.article_footer_primary {
+    width: 100%;
+    min-height: calc(
+        100vh - var(--main-padding-bottom) - 50px
+    ); /* 100vh - footer - body bottom padding */
+    background-color: var(--primary-bg);
+}
+
+.article_footer_second{
     width: 100%;
     /* height: auto; */
     min-height: calc(
         100vh - var(--main-padding-bottom) - 50px
     ); /* 100vh - footer - body bottom padding */
-    background-color: var(--primary-bg);
+    background-color: var(--second-bg);
 }
 
 .article_header_footer {

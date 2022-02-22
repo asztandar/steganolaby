@@ -41,22 +41,27 @@
 
 @media (max-width: 576px) {
     .welcome{
-        height: 100%;
+        min-height: inherit;
         padding-left: var(--padding-left-small);
         padding-right: var(--padding-right-small);
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        padding-bottom: var(--main-padding-bottom);
-        padding-top: 90px;
+        /* padding-bottom: var(--main-padding-bottom); */
+        padding-top: 0;
     }
     .left{
         width: 100%;
+        padding-top: 0;
     }
     .left h1{
         font-size: 30px;
     }
     .left p{
         width: 100%;
+        margin-bottom: 35px;
+        margin-top: 20px;
     }
 
     .right{
@@ -64,18 +69,23 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 577px) and (max-width: 991px) {
     .welcome{
-        height: 70vh;
+        min-height: inherit;
         padding-left: var(--padding-left-medium);
         padding-right: var(--padding-right-medium);
         flex-direction: column;
         text-align: center;
+        justify-content: center;
         padding-bottom: var(--main-padding-bottom);
-        padding-top: 90px;
     }
     .left{
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        order: 2;
     }
     .left h1{
         font-size: 30px;
@@ -85,31 +95,49 @@
     }
 
     .right{
-        display: none;
+        width: 100%;
+        order: 1;
+    }
+    .right img{
+        width: 90%;
+        height: 30%;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
     .welcome{
-        height: 70vh;
-        padding-left: var(--padding-left-large);
-        padding-right: var(--padding-right-large);
+        min-height: inherit;
+        padding-left: var(--padding-left-medium);
+        padding-right: var(--padding-right-medium);
         flex-direction: column;
         text-align: center;
-        padding-bottom: var(--main-padding-bottom);
-        padding-top: 90px;
+        justify-content: center;
+        padding-bottom: 20px;
+        padding-top: 0;
     }
     .left{
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        order: 2;
     }
     .left h1{
         font-size: 30px;
     }
     .left p{
-        width: 100%;
+        width: 80%;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     .right{
-        display: none;
+        width: 100%;
+        order: 1;
+    }
+    .right img{
+        width: 50%;
+        height: 30%;
     }
 }

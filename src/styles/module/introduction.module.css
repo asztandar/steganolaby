@@ -34,22 +34,66 @@
         padding-right: var(--padding-right-small);
         background-color: blueviolet;
         min-height: inherit;
-        margin-top: -50px;
+        padding-bottom: 20px;
     }
     .introduction h1{
         font-size: 30px;
         text-align: center;
+        margin-top: 0;
+        padding-top: 10px;
+    }
+    .introduction img{
+        width: 100%;
     }
     .introduction p{
-        margin-top: 30px;
-        margin-bottom: 30px;
+        padding-top: 30px;
+        padding-bottom: 10px;
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-    
+@media (min-width: 577px) and (max-width: 991px) {
+    .introduction{
+        padding-left: var(--padding-left-small);
+        padding-right: var(--padding-right-small);
+        background-color: blueviolet;
+        min-height: inherit;
+        padding-bottom: 20px;
+    }
+    .introduction h1{
+        font-size: 30px;
+        text-align: center;
+        margin-top: 0;
+        padding-top: 10px;
+    }
+    .introduction img{
+        width: 100%;
+    }
+    .introduction p{
+        padding-top: 30px;
+        padding-bottom: 10px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-    
+    .introduction{
+        padding-left: var(--padding-left-small);
+        padding-right: var(--padding-right-small);
+        background-color: blueviolet;
+        min-height: inherit;
+        padding-bottom: 20px;
+    }
+    .introduction h1{
+        font-size: 30px;
+        text-align: center;
+        margin-top: 0;
+        padding-top: 10px;
+    }
+    .introduction img{
+        width: 100%;
+    }
+    .introduction p{
+        width: 70%;
+        padding-top: 30px;
+        padding-bottom: 10px;
+    }
 }

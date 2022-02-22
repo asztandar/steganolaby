@@ -2,12 +2,40 @@ import * as React from "react";
 import cx from "classnames";
 import * as classess from "@styles/module/screen.module.css";
 
+/**
+ * @param {string} order
+ */
 function whatClass(order){
-    if(order === 0) return classess.article_header;
-    else if(order === 1) return classess.article_1;
-    else if(order === 2) return classess.article_2;
-    else if(order === 3) return classess.article_header_footer;
-    else return classess.article_footer
+    switch(order.toLowerCase()){
+        case "header":{
+            return classess.article_header;
+            break;
+        }
+        case "primary":{
+            return classess.article_primary;
+            break;
+        }
+        case "second":{
+            return classess.article_second;
+            break;
+        }
+        case "footer_primary":{
+            return classess.article_footer_primary;
+            break;
+        }
+        case "footer_second":{
+            return classess.article_footer_second;
+            break;
+        }
+        case "header_footer":{
+            return classess.article_header_footer;
+            break;
+        }
+        default:{
+            return classess.article_primary;
+            break;
+        }
+    }
 }
 
 const Screen = (props) => {
