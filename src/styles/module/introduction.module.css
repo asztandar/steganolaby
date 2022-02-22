@@ -32,7 +32,7 @@
     .introduction{
         padding-left: var(--padding-left-small);
         padding-right: var(--padding-right-small);
-        background-color: blueviolet;
+        background-color: var(--second-bg);
         min-height: inherit;
         padding-bottom: 20px;
     }
@@ -55,7 +55,7 @@
     .introduction{
         padding-left: var(--padding-left-small);
         padding-right: var(--padding-right-small);
-        background-color: blueviolet;
+        background-color: var(--second-bg);
         min-height: inherit;
         padding-bottom: 20px;
     }
@@ -78,7 +78,7 @@
     .introduction{
         padding-left: var(--padding-left-small);
         padding-right: var(--padding-right-small);
-        background-color: blueviolet;
+        background-color: var(--second-bg);
         min-height: inherit;
         padding-bottom: 20px;
     }

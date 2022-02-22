@@ -5,7 +5,6 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-bg);
-    /* background-color: aqua; */
     height: 51px;
     padding-top: var(--main-padding-top);
     padding-left: var(--main-padding-left);
@@ -19,7 +18,7 @@
         padding-left: var(--padding-left-small);
         padding-bottom: var(--main-padding-bottom);
         padding-right: var(--padding-right-small);
-        background-color: rgb(143, 95, 175);
+        background-color: var(--primary-bg);
     }
 }
 
@@ -29,7 +28,7 @@
         padding-left: var(--padding-left-medium);
         padding-bottom: var(--main-padding-bottom);
         padding-right: var(--padding-right-medium);
-        background-color: yellow;
+        background-color: var(--primary-bg);
     }
 }
 
@@ -39,6 +38,6 @@
         padding-left: var(--padding-left-medium);
         padding-bottom: var(--main-padding-bottom);
         padding-right: var(--padding-right-medium);
-        background-color: red;
+        background-color: var(--primary-bg);
     }
 }
