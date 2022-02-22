@@ -1,0 +1,19 @@
+@import "../variables.css";
+.dnd{
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--primary-text-color);
+}
+
+.dnd .cloud{
+    width: 20%;
+}
+
+.text{
+    text-align: center;
+}

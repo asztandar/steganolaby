@@ -1,0 +1,37 @@
+@import "../variables.css";
+.upload{
+    display: flex;
+    flex-direction: row;
+    color: var(--primary-text-color);
+    padding-top: 34px;
+    padding-left: var(--main-padding-left);
+    padding-right: var(--main-padding-left);
+}
+
+.left{
+    width: 50%;
+    height: 100%;
+    padding-top: 20px;
+
+}
+.left h1{
+    margin: 0;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.left p{
+    width: 70%;
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 100px;
+    line-height: 1.6;
+}
+
+
+.right{
+    width: 50%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+}

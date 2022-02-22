@@ -10,17 +10,17 @@ const links = [
     },
     {
         text: "Zakoduj",
-        url: "/encode.js",
+        url: "/encode",
         title: "Zakoduj wiadomość w grafice",
     },
     {
         text: "Odkoduj",
-        url: "/decode.js",
+        url: "/decode",
         title: "Odkoduj wiadomość z grafiki",
     },
     {
         text: "Sprawdzanie",
-        url: "/check.js",
+        url: "/check",
         title: "Opcja jedynie dla prowadzącego",
     },
 ];
@@ -73,18 +73,5 @@ const Menu = () => {
             </nav>
         );
     };
-
-    // return(
-    //     <nav className={classess.menu}>
-    //         <ul>
-    //             {links.map(link => (
-    //                 <li key={link.url}>
-    //                     <Link to={link.url} title={link.title} activeClassName={classess.active_link}>{link.text}</Link>
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     </nav>
-    // );
-
 
 export default Menu;
