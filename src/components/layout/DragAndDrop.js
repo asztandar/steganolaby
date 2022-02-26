@@ -66,7 +66,7 @@ const DragAndDrop = () =>{
                     <br />
                     <button id="butt">Przeglądaj</button>
                 </span>
-                <Modal showModal={showModal} setShowModal={setShowModal} alt="wrong" text="Sorry, wrong format" image={wrong}/>
+                <Modal showModal={showModal} setShowModal={setShowModal} alt="wrong" text="Przepraszam, wykryto nie obsługiwany format" image={wrong}/>
             </div>
         </article>
     );
