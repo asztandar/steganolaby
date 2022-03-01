@@ -9,12 +9,13 @@
     justify-content: center;
     align-items: center;
     color: var(--primary-text-color);
+    padding-bottom: 30px;
 }
 
 .encode h1 {
     font-size: 45px;
     font-weight: bold;
-    margin-top: -60px;
+    
 }
 
 .encode .text {

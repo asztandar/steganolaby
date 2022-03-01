@@ -31,6 +31,14 @@ const DragAndDrop = () =>{
         e.stopPropagation();
         console.log("drop");
         file = e.dataTransfer.files[0];
+        showFile();
+    }
+
+    function badFormat(){
+        setShowModal(prev => !prev);
+    }
+
+    function showFile(){
         fileType = file.type.split('/').pop().toLowerCase();
         if(acceptedExtension.includes(fileType)){
             let fileReader = new FileReader();
@@ -49,8 +57,14 @@ const DragAndDrop = () =>{
         }
     }
 
-    function badFormat(){
-        setShowModal(prev => !prev);
+    const handlePrzegladaj = () =>{
+        const input =  document.querySelector("#inputFile");
+        input.click();
+        input.addEventListener('change', (e) => {
+            file = e.target.files[0];
+            console.log(file);
+            showFile();
+        })
     }
 
     return (
@@ -64,7 +78,8 @@ const DragAndDrop = () =>{
                     <br />
                     lub
                     <br />
-                    <button id="butt">Przeglądaj</button>
+                    <button id="butt" onClick={handlePrzegladaj}>Przeglądaj</button>
+                    <input type="file" id="inputFile" accept="image/bmp" hidden />
                 </span>
                 <Modal showModal={showModal} setShowModal={setShowModal} alt="wrong" text="Przepraszam, wykryto nie obsługiwany format" image={wrong}/>
             </div>
