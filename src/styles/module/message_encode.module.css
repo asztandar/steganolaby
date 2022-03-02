@@ -1,7 +1,7 @@
 .message{
     display: flex;
     flex-direction: row;
-    color: var(--second-text-color);
+    color: var(--primary-text-color);
     /* padding-top: 90px; */
     padding-left: var(--main-padding-left);
     padding-right: var(--main-padding-left);
@@ -26,6 +26,7 @@
     width: 80%;
     height: 30%;
     border: 2px dotted black;
+    font-size: 24px;
 }
 
 .right{
@@ -60,3 +61,46 @@
     width: 60%;
 }
 
+@media (max-width: 576px) {
+    .message{
+        flex-direction: column;
+        padding-left: var(--padding-left-small);
+        padding-right: var(--padding-right-small);
+        align-items: center;
+        justify-content: center;
+    }   
+    .left{
+        width: 100%;
+        order: 2;
+        height: 200px;
+    }
+    .left textarea{
+        width: 80%;
+        height: 100%;
+    }
+    .right{
+        width: 100%;
+        margin: 0;
+        order: 1;
+        align-items: center;
+    }
+    .right h1{
+        margin: 0;
+        font-size: 40px;
+        font-weight: bold;
+        line-height: normal;
+    }
+    .right p{
+        width: 100%;
+        text-align: center;
+    }
+    
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+
+}

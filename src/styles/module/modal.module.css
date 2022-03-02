@@ -15,8 +15,8 @@
     align-items: center;
 }
 .modal {
-    width: 800px;
-    height: 500px;
+    width: 90%;
+    height: 60%;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     background-color: transparent;
     color: #000;
@@ -24,7 +24,7 @@
     grid-template-columns: 1fr 1fr;
     position: relative;
     z-index: 10;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 .modal img {
@@ -44,6 +44,7 @@
     line-height: 1.8;
     color: #141414;
     background-color: #fff;
+    border-radius: 10px;
 }
 
 .content p {

@@ -18,11 +18,11 @@ const encode = () => {
             <Screen order="header" id="encode">
                 <Upload />
             </Screen>
-            <Screen order="second" id="message">
-                <Message />
-            </Screen>
-            <Screen order="primary" id="lsb">
+            <Screen order="second" id="lsb">
                 <Lsb />
+            </Screen>
+            <Screen order="primary" id="message">
+                <Message />
             </Screen>
             <Screen order="footer_second" id="summary">
                 {/* <Summary /> */}

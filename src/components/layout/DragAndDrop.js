@@ -14,6 +14,7 @@ const DragAndDrop = () =>{
     let file = null;
     let fileType = "";
 
+    
     const handleDragOver = (e) =>{
         e.preventDefault();
         console.log("over");
@@ -31,6 +32,7 @@ const DragAndDrop = () =>{
         e.stopPropagation();
         console.log("drop");
         file = e.dataTransfer.files[0];
+        console.log(file)
         showFile();
     }
 
@@ -65,7 +67,9 @@ const DragAndDrop = () =>{
             console.log(file);
             showFile();
         })
+
     }
+
 
     return (
         <article className={classess.container}>

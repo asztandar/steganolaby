@@ -9,31 +9,31 @@ function whatClass(order){
     switch(order.toLowerCase()){
         case "header":{
             return classess.article_header;
-            break;
+            // break;
         }
         case "primary":{
             return classess.article_primary;
-            break;
+            // break;
         }
         case "second":{
             return classess.article_second;
-            break;
+            // break;
         }
         case "footer_primary":{
             return classess.article_footer_primary;
-            break;
+            // break;
         }
         case "footer_second":{
             return classess.article_footer_second;
-            break;
+            // break;
         }
         case "header_footer":{
             return classess.article_header_footer;
-            break;
+            // break;
         }
         default:{
             return classess.article_primary;
-            break;
+            // break;
         }
     }
 }

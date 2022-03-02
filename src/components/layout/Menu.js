@@ -4,19 +4,19 @@ import * as classess from "@styles/module/menu.module.css";
 
 const links = [
     {
-        text: "Strona główna",
+        text: "Start",
         url: "/",
         title: "Strona główna projektu",
     },
     {
-        text: "Zakoduj",
+        text: "Ukryj",
         url: "/encode",
-        title: "Zakoduj wiadomość w grafice",
+        title: "Ukryj wiadomość w grafice",
     },
     {
-        text: "Odkoduj",
+        text: "Odkryj",
         url: "/decode",
-        title: "Odkoduj wiadomość z grafiki",
+        title: "Odkryj wiadomość z grafiki",
     },
     {
         text: "Sprawdzanie",

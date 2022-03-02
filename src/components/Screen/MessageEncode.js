@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as classess from "@styles/module/message_encode.module.css";
-import image from "../../images/6.svg";
 const Message = () =>{
 
     const [input, setInput] = React.useState("");
@@ -21,7 +20,6 @@ const Message = () =>{
             <div className={classess.right}>
                 <h1>Wprowadź tekst</h1>
                 <p>Wprowadz tekstu, który chcesz ukryć w grafice.</p>
-                {/* <img src={image} alt="type text" /> */}
             </div>
         </article>
     );

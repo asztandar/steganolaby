@@ -38,3 +38,19 @@
 .text{
     text-align: center;
 }
+
+@media (max-width: 576px) {
+    .dnd{
+        height: 100%;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+    .dnd{
+        height: 100%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+
+}
