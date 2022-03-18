@@ -34,6 +34,7 @@ const Modal = ({ showModal, setShowModal, image, alt, text }) => {
                     onClick={closeModal}
                     ref={modalRef}
                     onKeyDown={closeModal}
+                    role="presentation"
                 >
                     <div className={classess.modal}>
                         <img src={image} alt={alt} />

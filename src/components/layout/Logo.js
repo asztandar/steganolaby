@@ -3,7 +3,7 @@ import * as classess from "@styles/module/logo.module.css";
 
 const Logo = () =>{
     return(
-        <span className={classess.logo}>SteganoLaby</span>
+        <span className={classess.logo}>SteganoLab</span>
     );
 }
 

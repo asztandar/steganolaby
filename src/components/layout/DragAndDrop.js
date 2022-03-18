@@ -1,94 +1,133 @@
 import * as React from "react";
 import * as classess from "@styles/module/drag_and_drop.module.css";
-import cloud from "../../images/cloud_1.svg"
-import wrong from "../../images/warning.svg"
+import cloud from "../../images/cloud_1.svg";
+import wrong from "../../images/warning.svg";
 import Modal from "./Modal";
 
-
-
-const DragAndDrop = () =>{
-
+const DragAndDrop = () => {
     const [showModal, setShowModal] = React.useState(false);
+    const [message, setMessage] = React.useState("");
 
-    const acceptedExtension = ['bmp'];
+    const acceptedMagicNumber = ["424d"];
+    /*
+    magic number:
+    bmp : 424d
+    */
     let file = null;
-    let fileType = "";
 
-    
-    const handleDragOver = (e) =>{
+    const handleDragOver = (e) => {
         e.preventDefault();
         console.log("over");
-        document.querySelector(`.${classess.dnd}`).classList.add(`${classess.active}`);
-    }
-    
-    const handleDragLeave = (e) =>{
+        document
+            .querySelector(`.${classess.dnd}`)
+            .classList.add(`${classess.active}`);
+    };
+
+    const handleDragLeave = (e) => {
         e.preventDefault();
         console.log("leave");
-        document.querySelector(`.${classess.dnd}`).classList.remove(`${classess.active}`);
-    }
-    
-    const handleDrop = (e) =>{
+        document
+            .querySelector(`.${classess.dnd}`)
+            .classList.remove(`${classess.active}`);
+    };
+
+    const handleDrop = async (e) => {
         e.preventDefault();
         e.stopPropagation();
         console.log("drop");
         file = e.dataTransfer.files[0];
-        console.log(file)
-        showFile();
-    }
+        checkType();
+    };
 
-    function badFormat(){
-        setShowModal(prev => !prev);
-    }
-
-    function showFile(){
-        fileType = file.type.split('/').pop().toLowerCase();
-        if(acceptedExtension.includes(fileType)){
-            let fileReader = new FileReader();
-            fileReader.onload = () =>{
-                let fileURL = fileReader.result;
-                console.log(fileURL);
-                let imgTag = `<img src="${fileURL}" alt="your picture" class="${classess.yourImage}">`;
-                // document.getElementById('dropArea').innerHTML = "";
-                document.getElementById('dropArea').innerHTML = imgTag;
+    const checkType = () => {
+        let headerType = "";
+        let blob = file;
+        const fileReader = new FileReader();
+        fileReader.onloadend = function (e) {
+            const arr = new Uint8Array(e.target.result).subarray(0, 4);
+            let header = "";
+            for (var i = 0; i < arr.length; i++) {
+                header += arr[i].toString(16);
             }
-            fileReader.readAsDataURL(file)
+            headerType = header.slice(0, 4);
+            if (acceptedMagicNumber.includes(headerType)) {
+                showFile();
+            } else {
+                badFormat();
+            }
+        };
+        fileReader.readAsArrayBuffer(blob);
+    };
 
-        }
-        else{
-            badFormat();
-        }
+    function badFormat() {
+        setMessage("Upewnij się że grafika na pewno jest bitmapą");
+        setShowModal((prev) => !prev);
     }
 
-    const handlePrzegladaj = () =>{
-        const input =  document.querySelector("#inputFile");
+    function showFile() {
+        let fileReader = new FileReader();
+        fileReader.onload = () => {
+            let fileURL = fileReader.result;
+            let imgTag = `<img src="${fileURL}" alt="your picture" class="${classess.yourImage}">`;
+            // document.getElementById('dropArea').innerHTML = "";
+            document.getElementById("dropArea").innerHTML = imgTag;
+            saveToStore();
+        };
+        fileReader.readAsDataURL(file);
+    }
+
+    function saveToStore(){
+        console.log("elo")
+    }
+
+    const handlePrzegladaj = () => {
+        const input = document.querySelector("#inputFile");
         input.click();
-        input.addEventListener('change', (e) => {
+        input.addEventListener("change", (e) => {
             file = e.target.files[0];
             console.log(file);
-            showFile();
-        })
-
-    }
-
+            checkType();
+        });
+    };
 
     return (
         <article className={classess.container}>
-            <div id="dropArea" className={classess.dnd} onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop} role="presentation">
+            <div
+                id="dropArea"
+                className={classess.dnd}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+                role="presentation"
+            >
                 <figure>
-                    <img src={cloud} alt="cloud" className={classess.cloud}/>
+                    <img src={cloud} alt="cloud" className={classess.cloud} />
                 </figure>
                 <span className={classess.text}>
                     Przeciągnij i upuść tutaj
                     <br />
                     lub
                     <br />
-                    <button id="butt" onClick={handlePrzegladaj}>Przeglądaj</button>
-                    <input type="file" id="inputFile" accept="image/bmp" hidden />
+                    <button id="butt" onClick={handlePrzegladaj}>
+                        Przeglądaj
+                    </button>
+                    <input
+                        type="file"
+                        id="inputFile"
+                        accept="image/bmp"
+                        hidden
+                    />
                 </span>
-                <Modal showModal={showModal} setShowModal={setShowModal} alt="wrong" text="Przepraszam, wykryto nie obsługiwany format" image={wrong}/>
+                <Modal
+                    showModal={showModal}
+                    setShowModal={setShowModal}
+                    alt="wrong"
+                    text={message}
+                    image={wrong}
+                />
             </div>
         </article>
     );
-}
+};
 
 export default DragAndDrop;
