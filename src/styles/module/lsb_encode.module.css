@@ -1,3 +1,4 @@
+@import "../variables.css";
 .lsb{
     display: flex;
     flex-direction: row;

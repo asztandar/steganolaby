@@ -3,8 +3,14 @@ import * as classess from "@styles/module/drag_and_drop.module.css";
 import cloud from "../../images/cloud_1.svg";
 import wrong from "../../images/warning.svg";
 import Modal from "./Modal";
+import Context from "../../utils/context";
+
 
 const DragAndDrop = () => {
+
+    const [context, setContext] = React.useContext(Context);
+
+
     const [showModal, setShowModal] = React.useState(false);
     const [message, setMessage] = React.useState("");
 
@@ -17,7 +23,7 @@ const DragAndDrop = () => {
 
     const handleDragOver = (e) => {
         e.preventDefault();
-        console.log("over");
+        // console.log("over");
         document
             .querySelector(`.${classess.dnd}`)
             .classList.add(`${classess.active}`);
@@ -25,7 +31,7 @@ const DragAndDrop = () => {
 
     const handleDragLeave = (e) => {
         e.preventDefault();
-        console.log("leave");
+        // console.log("leave");
         document
             .querySelector(`.${classess.dnd}`)
             .classList.remove(`${classess.active}`);
@@ -34,7 +40,7 @@ const DragAndDrop = () => {
     const handleDrop = async (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log("drop");
+        // console.log("drop");
         file = e.dataTransfer.files[0];
         checkType();
     };
@@ -46,7 +52,7 @@ const DragAndDrop = () => {
         fileReader.onloadend = function (e) {
             const arr = new Uint8Array(e.target.result).subarray(0, 4);
             let header = "";
-            for (var i = 0; i < arr.length; i++) {
+            for (let i = 0; i < arr.length; i++) {
                 header += arr[i].toString(16);
             }
             headerType = header.slice(0, 4);
@@ -77,7 +83,7 @@ const DragAndDrop = () => {
     }
 
     function saveToStore(){
-        console.log("elo")
+        setContext({...context, file: file})
     }
 
     const handlePrzegladaj = () => {
@@ -85,7 +91,7 @@ const DragAndDrop = () => {
         input.click();
         input.addEventListener("change", (e) => {
             file = e.target.files[0];
-            console.log(file);
+            // console.log(file);
             checkType();
         });
     };

@@ -51,7 +51,7 @@ const Lsb = () => {
                     Za pomocą suwaków zaznacz najmniej znaczące bity każdej ze
                     składowej RGB.
                 </p>
-                <Button order={2} title="WPROWADŹ TEKST" text="WPROWADŹ TEKST" navigateTo="message"/>
+                <Button order={2} title="PODSUMOWANIE" text="PODSUMOWANIE" navigateTo="summary"/>
             </div>
             <div className={classess.right}>
                 <div className={classess.range}>

@@ -2,15 +2,12 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import Layout from "../components/layout/Layout";
 import Screen from "../components/Screen";
-import Lsb from "../components/Screen/LSBEncode";
-import Message from "../components/Screen/MessageEncode";
+import Lsb from "../components/Screen/LSBDecode";
 import Upload from "../components/Screen/UploadEncode";
-import Summary from "../components/Screen/Summary";
+import Summary from "../components/Screen/SummaryDecode";
 import Context from "../utils/context";
 
-
-
-const Encode = () => {
+const Decode = () => {
 
     const [context, setContext] = React.useState({
         file: '',
@@ -21,7 +18,7 @@ const Encode = () => {
     });
 
     React.useEffect(()=>{
-        // console.log("context: ", context)
+        console.log("context: ", context)
     },[context])
     return (
         <Layout>
@@ -29,18 +26,15 @@ const Encode = () => {
             <Helmet>
                 <html lang="pl" />
                 <meta charSet="utf-8" />
-                <title>SteganoLaby - Ukryj wiadomość</title>
+                <title>SteganoLaby - Odkryj wiadomość</title>
             </Helmet>
-            <Screen order="header" id="encode">
+            <Screen order="header" id="decode">
                 <Upload />
             </Screen>
             <Screen order="second" id="lsb">
                 <Lsb />
             </Screen>
-            <Screen order="primary" id="message">
-                <Message />
-            </Screen>
-            <Screen order="footer_second" id="summary">
+            <Screen order="footer_primary" id="summary">
                 <Summary />
             </Screen>
             </Context.Provider>
@@ -48,4 +42,4 @@ const Encode = () => {
     );
 };
 
-export default Encode;
+export default Decode;

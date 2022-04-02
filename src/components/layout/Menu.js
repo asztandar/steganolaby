@@ -27,7 +27,7 @@ const links = [
 
 function toggleMobileMenu() {
     const menu = document.querySelector(`.${classess.hamburger_icon}`);
-    console.log("menu: ", menu)
+    // console.log("menu: ", menu)
     menu.classList.toggle(`${classess.open}`);
 
 
