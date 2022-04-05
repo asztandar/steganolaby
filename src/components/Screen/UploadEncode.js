@@ -4,7 +4,6 @@ import DragAndDrop from "../layout/DragAndDrop";
 import Button from "../layout/Button";
 
 const Upload = (props) => {
-    // console.log("props: ", props)
     return (
         <div className={classess.upload}>
             <Left />

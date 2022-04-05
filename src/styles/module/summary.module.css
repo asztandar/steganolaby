@@ -120,4 +120,83 @@
 }
 
 
+@media (max-width: 576px) {
+    .summary > .cards > .card{
+        width: 100%;
+        padding: 4px 2px 2px 2px;
+    }
+    .summary > .cards{
+        margin-bottom: 0;
+    }
+    .summary > .button{
+        margin-bottom: 20px;
+    }
+    .summary > h1{
+        text-align: center;
+    }
+
+    .summary_1{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .summary_1 > .image{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .summary_1 > .download{
+        margin: 0;
+        padding: 0;
+        height: auto;
+        margin-top: 40px;
+    }
+    .download>button{
+        margin: 0;
+
+    }
+    
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+    .summary > .cards > .card{
+        width: 100%;
+        padding: 4px 2px 2px 2px;
+    }
+    .summary > .cards{
+        margin-bottom: 0;
+    }
+    .summary > .button{
+        margin-bottom: 20px;
+    }
+    .summary > h1{
+        text-align: center;
+    }
+
+    .summary_1{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .summary_1 > .image{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .summary_1 > .download{
+        margin: 0;
+        padding: 0;
+        height: auto;
+        margin-top: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+    .download>button{
+        margin:0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    
+}
 

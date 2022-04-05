@@ -1,0 +1,63 @@
+@import "../variables.css";
+
+.checking{
+    height: calc(
+        100vh - 51px - var(--main-padding-top) - var(--main-padding-bottom) -
+            60px
+    ); /* 100vh - header - body top padding - footer - body bottom padding */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--primary-text-color);
+}
+
+.checking > h1{
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+.checking > button{
+    margin-top: 10px;
+}
+
+@media (max-width: 576px) {
+    .checking{
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .checking > h1{
+        font-size: 30px;
+    }
+
+    .checking > button{
+        margin-top: 20px;
+    }
+    
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+    .checking{
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .checking > h1{
+        font-size: 45px;
+    }
+
+    .checking > button{
+        margin-top: 20px;
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    
+}

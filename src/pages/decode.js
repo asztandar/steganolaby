@@ -6,9 +6,28 @@ import Lsb from "../components/Screen/LSBDecode";
 import Upload from "../components/Screen/UploadEncode";
 import Summary from "../components/Screen/SummaryDecode";
 import Context from "../utils/context";
+import axios from "axios";
+
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
 
 const Decode = () => {
-
+    const [okToken, setOkToken] = React.useState(false);
+    const [admin, setAdmin] = React.useState(false);
     const [context, setContext] = React.useState({
         file: '',
         red: 0,
@@ -17,9 +36,27 @@ const Decode = () => {
         text: ''
     });
 
+
     React.useEffect(()=>{
-        console.log("context: ", context)
-    },[context])
+        const tokenCheck = getCookie("tokenCheck");
+        if(tokenCheck !== ""){
+            axios.post(`http://localhost/stegano/api/token.php?token=${tokenCheck}`).then(function(response){
+                // console.log("response:", response.data.data)
+                if(response.data.data != null){
+                    setOkToken(true);
+                }
+            })
+        }
+    },[])
+
+    React.useEffect(()=>{
+        if(okToken) setAdmin(true);
+        else setAdmin(false);
+    },[okToken]);
+
+    // React.useEffect(()=>{
+    //     console.log("context: ", context)
+    // },[context])
     return (
         <Layout>
             <Context.Provider value={[context, setContext]}>
@@ -35,7 +72,7 @@ const Decode = () => {
                 <Lsb />
             </Screen>
             <Screen order="footer_primary" id="summary">
-                <Summary />
+                <Summary admin={admin}/>
             </Screen>
             </Context.Provider>
         </Layout>

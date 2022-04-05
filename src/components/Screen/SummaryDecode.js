@@ -7,6 +7,7 @@ import Loading from "../layout/Loading";
 import { createCanvas } from "../../utils/createCanvas";
 import { imageRGBArray } from "../../utils/imageRGBArray";
 import { imageRGBArrayBin } from "../../utils/imageRGBArrayBin";
+import { createImage } from "../../utils/createImage";
 
 
 const dkLSB = (rgbArrayBin, red, green, blue) => {
@@ -17,13 +18,13 @@ const dkLSB = (rgbArrayBin, red, green, blue) => {
         if(blue > 0) textBin = textBin.concat(rgbArrayBin.bBin[i].slice(-blue));
     }
 
-    console.log("textBin: ", textBin)
-    console.log("textBin.length: ", textBin.length)
+    // console.log("textBin: ", textBin)
+    // console.log("textBin.length: ", textBin.length)
     const textBinArray = [];
     for(let i=0;i<textBin.length;i+=8){
         textBinArray.push(textBin.slice(i,i+8))
     }
-    console.log("textBinTab:", textBinArray)
+    // console.log("textBinTab:", textBinArray)
     return textBinArray
 
 } 
@@ -44,16 +45,17 @@ const handleDecode = async({file, red, green, blue}) =>{
     const rgbArrayBin = imageRGBArrayBin(rgbArray);
     const textBinArray = dkLSB(rgbArrayBin, red, green, blue);
     const decodeText = textBinArrayToText(textBinArray);
-    console.log("zwracam decodeText")
+    // console.log("zwracam decodeText")
     return decodeText;
 }
 
-const Summary = () =>{
+const Summary = (props) =>{
     const context = React.useContext(Context);
     const [url, setUrl] = React.useState("");
     const [isLoading, setIsLoading] = React.useState(0);
     const [isResponse, setIsResponse] = React.useState(false);
     const [message, setMessage] = React.useState("");
+    const [limit, setLimit] = React.useState(0);
     React.useEffect(()=>{
         if(context[0].file !== ""){
             let fileReader = new FileReader();
@@ -67,7 +69,7 @@ const Summary = () =>{
 
     React.useEffect(()=>{
         if(isResponse){
-            console.log("setisloading 2")
+            // console.log("setisloading 2")
             setIsLoading(2);
         }
     }, [isResponse])
@@ -78,12 +80,22 @@ const Summary = () =>{
         }else{
             setIsLoading(1);
             const decodedText =  await handleDecode(context[0]);
-            console.log("decodedText:", decodedText)
+            // console.log("decodedText:", decodedText)
             setMessage(decodedText);
+            if(props.admin){
+                const image = await new Promise((res,rej)=>{
+                    res(createImage(context[0].file));
+                });
+                const width = image.width;
+                const height = image.height;
+                const val = (parseInt(context[0].red) + parseInt(context[0].green) + parseInt(context[0].blue));
+                const ret = (val * width * height)/8
+                // console.log("ret:",ret, "val:",val)
+                setLimit(ret);
+            }
             setIsResponse(true);
         }
     }
-
 
     const Summary0 = () => {
         return(
@@ -99,10 +111,22 @@ const Summary = () =>{
     }
 
     const Summary1 = () => {
+        
         return(
             <>
-                <h1>Odczytana wiadomość:</h1>
-                <p className={classess.p}>{message}</p>
+                {props.admin === false?
+                    <>
+                    <h1>Odczytana wiadomość:</h1>
+                    <p className={classess.p}>{message}</p>
+                    </>
+                    :
+                    <>
+                        <h1>Odczytana wiadomość oraz pojemność kontenera:</h1>
+                        <p className={classess.p}>Wiadomość: {message}</p>
+                        <p className={classess.p}>Pojemność:{limit} znaków.</p>
+                    </>
+                }
+                
             </>
         )
     }

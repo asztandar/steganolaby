@@ -94,11 +94,48 @@
         width: 100%;
         text-align: center;
     }
+    .right > a > button{
+        display: none;
+    }
     
 }
 
 @media (min-width: 577px) and (max-width: 991px) {
-
+    .message{
+        flex-direction: column;
+        padding-left: var(--padding-left-small);
+        padding-right: var(--padding-right-small);
+        align-items: center;
+        justify-content: center;
+    }   
+    .left{
+        width: 100%;
+        order: 2;
+        height: 200px;
+    }
+    .left textarea{
+        width: 80%;
+        height: 100%;
+    }
+    .right{
+        width: 100%;
+        margin: 0;
+        order: 1;
+        align-items: center;
+    }
+    .right h1{
+        margin: 0;
+        font-size: 40px;
+        font-weight: bold;
+        line-height: normal;
+    }
+    .right p{
+        width: 100%;
+        text-align: center;
+    }
+    .right > a > button{
+        display: none;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
