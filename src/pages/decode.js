@@ -33,14 +33,15 @@ const Decode = () => {
         red: 0,
         green: 0,
         blue: 0,
-        text: ''
+        text: '',
+        disabled: false,
     });
 
 
     React.useEffect(()=>{
         const tokenCheck = getCookie("tokenCheck");
         if(tokenCheck !== ""){
-            axios.post(`http://localhost/stegano/api/token.php?token=${tokenCheck}`).then(function(response){
+            axios.post(`https://rodwald.pl/stegano/api/token.php?token=${tokenCheck}`).then(function(response){
                 // console.log("response:", response.data.data)
                 if(response.data.data != null){
                     setOkToken(true);
@@ -63,7 +64,7 @@ const Decode = () => {
             <Helmet>
                 <html lang="pl" />
                 <meta charSet="utf-8" />
-                <title>SteganoLaby - Odkryj wiadomość</title>
+                <title>SteganoLab - Odkryj wiadomość</title>
             </Helmet>
             <Screen order="header" id="decode">
                 <Upload />

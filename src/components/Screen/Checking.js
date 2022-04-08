@@ -14,10 +14,14 @@ const Checking = () =>{
         event.preventDefault();
         if(pin.length > 0){
             console.log("pin:",pin)
-            axios.post(`http://localhost/stegano/api/sprawdzanie.php?pin=${pin}`).then(function(response){
+            axios.post(`https://rodwald.pl/stegano/api/sprawdzanie.php?pin=${pin}`).then(function(response){
                 console.log("response:", response.data.data)
                 if(response.data.data != null){
                     setHash(response.data.data);
+                    alert("poprawny pin");
+                    setPin("");
+                }else{
+                    alert("niepoprawny pin, administrator został poinformowany");
                 }
             })
         }else{

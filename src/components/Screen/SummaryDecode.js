@@ -50,20 +50,20 @@ const handleDecode = async({file, red, green, blue}) =>{
 }
 
 const Summary = (props) =>{
-    const context = React.useContext(Context);
+    const [context,setContext] = React.useContext(Context);
     const [url, setUrl] = React.useState("");
     const [isLoading, setIsLoading] = React.useState(0);
     const [isResponse, setIsResponse] = React.useState(false);
     const [message, setMessage] = React.useState("");
     const [limit, setLimit] = React.useState(0);
     React.useEffect(()=>{
-        if(context[0].file !== ""){
+        if(context.file !== ""){
             let fileReader = new FileReader();
             fileReader.onload = () =>{
                 let fileURL = fileReader.result;
                 setUrl(fileURL);
             };
-            fileReader.readAsDataURL(context[0].file)
+            fileReader.readAsDataURL(context.file)
         }
     },[context]);
 
@@ -75,20 +75,21 @@ const Summary = (props) =>{
     }, [isResponse])
 
     const handleButtonOnClick = async() =>{
-        if(context[0].file ===""){
+        if(context.file ===""){
             alert("Upewnij się że załadowałeś grafikę");
         }else{
+            setContext({...context, disabled:true})
             setIsLoading(1);
-            const decodedText =  await handleDecode(context[0]);
+            const decodedText =  await handleDecode(context);
             // console.log("decodedText:", decodedText)
             setMessage(decodedText);
             if(props.admin){
                 const image = await new Promise((res,rej)=>{
-                    res(createImage(context[0].file));
+                    res(createImage(context.file));
                 });
                 const width = image.width;
                 const height = image.height;
-                const val = (parseInt(context[0].red) + parseInt(context[0].green) + parseInt(context[0].blue));
+                const val = (parseInt(context.red) + parseInt(context.green) + parseInt(context.blue));
                 const ret = (val * width * height)/8
                 // console.log("ret:",ret, "val:",val)
                 setLimit(ret);
@@ -98,12 +99,13 @@ const Summary = (props) =>{
     }
 
     const Summary0 = () => {
+        // console.log("context: ", context)
         return(
             <>
                 <h1>Podsumowanie i odkrywanie</h1>
                 <div className={classess.cards}>
                     <CardImage cn={classess.card} url={url} />
-                    <CardLSB cn={classess.card} red={context[0].red} green={context[0].green} blue={context[0].blue} />
+                    <CardLSB cn={classess.card} red={context.red} green={context.green} blue={context.blue} />
                 </div>
                 <button className={classess.button} type="button" title="UKRYJ" onClick={handleButtonOnClick}>ODKRYJ</button>
             </>
@@ -123,7 +125,7 @@ const Summary = (props) =>{
                     <>
                         <h1>Odczytana wiadomość oraz pojemność kontenera:</h1>
                         <p className={classess.p}>Wiadomość: {message}</p>
-                        <p className={classess.p}>Pojemność:{limit} znaków.</p>
+                        <p className={classess.p}>Pojemność:{Math.floor(limit)} znaków.</p>
                     </>
                 }
                 

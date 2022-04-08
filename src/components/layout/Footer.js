@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className={classess.footer}>
         <span>
-            &copy; Copyright {`${dateBegin} - ${dateNow}`}. All Rights Reserved.
+            &copy; Copyright {`${dateNow}`} by Adama Sztandar. All Rights Reserved.
         </span>
     </footer>
   );

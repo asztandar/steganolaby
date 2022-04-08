@@ -1,2 +1,2 @@
-# steganolaby
+# steganolab
 Engineering thesis project on steganography

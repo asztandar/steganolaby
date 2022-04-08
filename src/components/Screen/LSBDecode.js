@@ -7,7 +7,13 @@ import Context from "../../utils/context";
 const Lsb = () => {
 
     const [context, setContext] = React.useContext(Context);
+    const [isDisabled, setIsDisabled] = React.useState(false);
 
+    React.useEffect(()=>{
+        if(context.disabled){
+            setIsDisabled(true);
+        }
+    },[context])
 
     const [range, setRange] = React.useState({
         red: 0,
@@ -67,6 +73,7 @@ const Lsb = () => {
                             defaultValue={range.red}
                             onChange={handleChange}
                             className={`${classess.redSlider} ${classess.slider}`}
+                            disabled={isDisabled}
                         />
                     </label>
                     <label htmlFor="green">
@@ -81,6 +88,7 @@ const Lsb = () => {
                             defaultValue={range.green}
                             onChange={handleChange}
                             className={`${classess.greenSlider} ${classess.slider}`}
+                            disabled={isDisabled}
                         />
                     </label>
                     <label htmlFor="blue">
@@ -95,6 +103,7 @@ const Lsb = () => {
                             defaultValue={range.blue}
                             onChange={handleChange}
                             className={`${classess.blueSlider} ${classess.slider}`}
+                            disabled={isDisabled}
                         />
                     </label>
                 </div>

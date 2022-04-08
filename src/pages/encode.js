@@ -29,7 +29,7 @@ const Encode = () => {
             <Helmet>
                 <html lang="pl" />
                 <meta charSet="utf-8" />
-                <title>SteganoLaby - Ukryj wiadomość</title>
+                <title>SteganoLab - Ukryj wiadomość</title>
             </Helmet>
             <Screen order="header" id="encode">
                 <Upload />

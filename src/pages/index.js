@@ -13,7 +13,7 @@ const IndexPage = () => {
             <Helmet>
                 <html lang="pl" />
                 <meta charSet="utf-8" />
-                <title>SteganoLaby - Strona główna</title>
+                <title>SteganoLab - Strona główna</title>
             </Helmet>
             <Screen order="header" id="welcome">
                 <Welcome order={1} />

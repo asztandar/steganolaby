@@ -10,7 +10,7 @@ const Check = () => {
             <Helmet>
                 <html lang="pl" />
                 <meta charSet="utf-8" />
-                <title>SteganoLaby - Sprawdzanie</title>
+                <title>SteganoLab - Sprawdzanie</title>
             </Helmet>
             <Screen order="header_footer" id="check">
                 <Checking />
