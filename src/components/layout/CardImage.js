@@ -11,8 +11,9 @@ const CardImage = (props) => {
                 </figure>
                 :
                 <p>Wczytaj grafikę w pierwszym kroku...</p>
+            
         
-        }
+            }
         </div>
     )
 }

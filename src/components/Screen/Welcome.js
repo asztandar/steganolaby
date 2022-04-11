@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as classess from "@styles/module/welcome.module.css";
-import image_1 from "../../images/welcome.png"
+import image_1 from "../../images/1.svg"
 import Button from "../layout/Button";
 
 const Welcome = (props) => {

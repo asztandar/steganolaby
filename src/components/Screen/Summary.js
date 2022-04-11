@@ -59,19 +59,19 @@ const createNewCanvas = async(imageData) =>{
 
 
 const Summary = () =>{
-    const context = React.useContext(Context);
+    const [context, setContext] = React.useContext(Context);
     const [url, setUrl] = React.useState("");
     const [isLoading, setIsLoading] = React.useState(0);
     const [imageNew, setImageNew] = React.useState(null);
     const [canvasNew, setCanvasNew] = React.useState(null);
     React.useEffect(()=>{
-        if(context[0].file !== ""){
+        if(context.file !== ""){
             let fileReader = new FileReader();
             fileReader.onload = () =>{
                 let fileURL = fileReader.result;
                 setUrl(fileURL);
             };
-            fileReader.readAsDataURL(context[0].file)
+            fileReader.readAsDataURL(context.file)
         }
     },[context]);
 
@@ -83,11 +83,12 @@ const Summary = () =>{
 
 
     const handleButtonOnClick = async() => {
-        if(context[0].file ==="" || context[0].text === ""){
+        if(context.file ==="" || context.text === ""){
             alert("Upewnij się że załadowałeś grafikę oraz wpisałeś tekst!");
         }else{
+            setContext({...context, disabled:true})
             setIsLoading(1)
-            const canvas = await handleEncode(context[0])
+            const canvas = await handleEncode(context)
             // console.log("handlebuttononclick canvas: ", canvas)
             const image = await new Promise((resolve, reject)=>{
                 resolve(Canvas2Image.convertToBMP(canvas, canvas.width, canvas.height).src);
@@ -106,8 +107,8 @@ const Summary = () =>{
                 <h1>Podsumowanie i ukrywanie</h1>
                 <div className={classess.cards}>
                     <CardImage cn={classess.card} url={url} />
-                    <CardLSB cn={classess.card} red={context[0].red} green={context[0].green} blue={context[0].blue} />
-                    <CardText cn={classess.card} text={context[0].text} />
+                    <CardLSB cn={classess.card} red={context.red} green={context.green} blue={context.blue} />
+                    <CardText cn={classess.card} overflowText={classess.overflowText} text={context.text} />
                 </div>
                 <button className={classess.button} type="button" title="UKRYJ" onClick={handleButtonOnClick}>UKRYJ</button>
             </>

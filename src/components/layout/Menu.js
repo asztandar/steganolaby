@@ -18,11 +18,11 @@ const links = [
         url: "/decode",
         title: "Odkryj wiadomość z grafiki",
     },
-    {
-        text: "Sprawdzanie",
-        url: "/check",
-        title: "Opcja jedynie dla prowadzącego",
-    },
+    // {
+    //     text: "Sprawdzanie",
+    //     url: "/check",
+    //     title: "Opcja jedynie dla prowadzącego",
+    // },
 ];
 
 function toggleMobileMenu() {

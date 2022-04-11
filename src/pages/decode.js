@@ -41,7 +41,7 @@ const Decode = () => {
     React.useEffect(()=>{
         const tokenCheck = getCookie("tokenCheck");
         if(tokenCheck !== ""){
-            axios.post(`https://rodwald.pl/stegano/api/token.php?token=${tokenCheck}`).then(function(response){
+            axios.post(`https://rodwald.pl/steganolab/api/token.php?token=${tokenCheck}`).then(function(response){
                 // console.log("response:", response.data.data)
                 if(response.data.data != null){
                     setOkToken(true);

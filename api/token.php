@@ -3,11 +3,12 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: *");
 header("Content-Type:application/json");
 
+include('config.php');
 
 if(!empty($_GET['token']))
 {
 	$token=$_GET['token'];
-    $token_good = "";
+    // $token_good = "";
     $token_good_md5 = md5($token_good);
 	
     if(check($token,$token_good_md5) == 1){

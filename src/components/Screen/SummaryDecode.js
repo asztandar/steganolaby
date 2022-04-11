@@ -56,6 +56,7 @@ const Summary = (props) =>{
     const [isResponse, setIsResponse] = React.useState(false);
     const [message, setMessage] = React.useState("");
     const [limit, setLimit] = React.useState(0);
+    const [containerSize, setContainerSize] = React.useState(0);
     React.useEffect(()=>{
         if(context.file !== ""){
             let fileReader = new FileReader();
@@ -87,12 +88,15 @@ const Summary = (props) =>{
                 const image = await new Promise((res,rej)=>{
                     res(createImage(context.file));
                 });
+                console.log("context.file.size: ", context.file.size)
                 const width = image.width;
                 const height = image.height;
                 const val = (parseInt(context.red) + parseInt(context.green) + parseInt(context.blue));
                 const ret = (val * width * height)/8
+                const sizeContainer = (width*height*val)/(context.file.size*8);
                 // console.log("ret:",ret, "val:",val)
                 setLimit(ret);
+                setContainerSize(sizeContainer);
             }
             setIsResponse(true);
         }
@@ -119,13 +123,14 @@ const Summary = (props) =>{
                 {props.admin === false?
                     <>
                     <h1>Odczytana wiadomość:</h1>
-                    <p className={classess.p}>{message}</p>
+                    <p className={`${classess.p} ${classess.overflowText}`}>{message.length<Math.floor(limit)?message.slice(0,-1):message}</p>
                     </>
                     :
                     <>
                         <h1>Odczytana wiadomość oraz pojemność kontenera:</h1>
-                        <p className={classess.p}>Wiadomość: {message}</p>
+                        <p className={`${classess.p} ${classess.overflowText}`}>Wiadomość: {message.length<Math.floor(limit)?message.slice(0,-1):message}</p>
                         <p className={classess.p}>Pojemność:{Math.floor(limit)} znaków.</p>
+                        <p className={classess.p}>Pojemność: {(containerSize*100).toFixed(2)}%</p>
                     </>
                 }
                 
