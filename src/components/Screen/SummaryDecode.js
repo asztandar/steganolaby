@@ -8,6 +8,7 @@ import { createCanvas } from "../../utils/createCanvas";
 import { imageRGBArray } from "../../utils/imageRGBArray";
 import { imageRGBArrayBin } from "../../utils/imageRGBArrayBin";
 import { createImage } from "../../utils/createImage";
+import { text2Bin } from "../../utils/text2Bin";
 
 
 const dkLSB = (rgbArrayBin, red, green, blue) => {
@@ -36,6 +37,10 @@ const textBinArrayToText = (textBinArray) => {
             text = text.concat(String.fromCharCode(parseInt(element, 2)))
         }
     });
+    // console.log("textBinArrayTotext:", text)
+    // console.log("textBinArrayTotext slice:", text.slice(0,-1))
+    // console.log("bin last char: ", text2Bin(text.slice(-1)))
+    if(text2Bin(text.slice(-1)) === "00000000") return text.slice(0,-1);
     return text;
 }
 
@@ -117,18 +122,18 @@ const Summary = (props) =>{
     }
 
     const Summary1 = () => {
-        
+        // if(text2Bin(message).slice(-8) == "00000000")
         return(
             <>
                 {props.admin === false?
                     <>
                     <h1>Odczytana wiadomość:</h1>
-                    <p className={`${classess.p} ${classess.overflowText}`}>{message.length<Math.floor(limit)?message.slice(0,-1):message}</p>
+                    <p className={`${classess.p} ${classess.overflowText}`}>{message}</p>
                     </>
                     :
                     <>
                         <h1>Odczytana wiadomość oraz pojemność kontenera:</h1>
-                        <p className={`${classess.p} ${classess.overflowText}`}>Wiadomość: {message.length<Math.floor(limit)?message.slice(0,-1):message}</p>
+                        <p className={`${classess.p} ${classess.overflowText}`}>Wiadomość: {message}</p>
                         <p className={classess.p}>Pojemność:{Math.floor(limit)} znaków.</p>
                         <p className={classess.p}>Pojemność: {(containerSize*100).toFixed(2)}%</p>
                     </>
