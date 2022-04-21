@@ -9,7 +9,7 @@ import { imageRGBArray } from "../../utils/imageRGBArray";
 import { imageRGBArrayBin } from "../../utils/imageRGBArrayBin";
 import { createImage } from "../../utils/createImage";
 import { text2Bin } from "../../utils/text2Bin";
-
+import { navigate } from "gatsby";
 
 const dkLSB = (rgbArrayBin, red, green, blue) => {
     let textBin = "";
@@ -31,12 +31,22 @@ const dkLSB = (rgbArrayBin, red, green, blue) => {
 } 
 
 const textBinArrayToText = (textBinArray) => {
+    console.log("textBinArray:", textBinArray)
     let text = "";
-    textBinArray.forEach(element => {
-        if(element !== "00000000"){
-            text = text.concat(String.fromCharCode(parseInt(element, 2)))
-        }
-    });
+    let i=0;
+    // textBinArray.forEach(element => {
+    //     console.log("element["+i+"]:", element)
+    //     if(element !== "00000000"){
+    //         text = text.concat(String.fromCharCode(parseInt(element, 2)))
+    //     }
+    //     if(element === "00000000") break;
+    //     i++;
+    // });
+
+    while(textBinArray[i] !== "00000000"){
+        text = text.concat(String.fromCharCode(parseInt(textBinArray[i], 2)));
+        i++;
+    }
     // console.log("textBinArrayTotext:", text)
     // console.log("textBinArrayTotext slice:", text.slice(0,-1))
     // console.log("bin last char: ", text2Bin(text.slice(-1)))
@@ -136,6 +146,7 @@ const Summary = (props) =>{
                         <p className={`${classess.p} ${classess.overflowText}`}>Wiadomość: {message}</p>
                         <p className={classess.p}>Pojemność:{Math.floor(limit)} znaków.</p>
                         <p className={classess.p}>Pojemność: {(containerSize*100).toFixed(2)}%</p>
+                        <button onClick={() => {window.location.reload(true);navigate('/decode'); }}>Od początku</button>
                     </>
                 }
                 

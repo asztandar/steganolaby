@@ -73,7 +73,7 @@ const Decode = () => {
                 <Lsb />
             </Screen>
             <Screen order="footer_primary" id="summary">
-                <Summary admin={admin}/>
+                <Summary admin={true}/>
             </Screen>
             </Context.Provider>
         </Layout>
