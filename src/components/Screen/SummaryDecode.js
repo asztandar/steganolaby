@@ -11,6 +11,7 @@ import { createImage } from "../../utils/createImage";
 import { text2Bin } from "../../utils/text2Bin";
 import { navigate } from "gatsby";
 
+
 const dkLSB = (rgbArrayBin, red, green, blue) => {
     let textBin = "";
     for(let i=0;i<rgbArrayBin.rBin.length;i++){
@@ -123,7 +124,10 @@ const Summary = (props) =>{
                         <p className={`${classess.p} ${classess.overflowText}`}>Wiadomość: {message}</p>
                         <p className={classess.p}>Pojemność:{Math.floor(limit)} znaków.</p>
                         <p className={classess.p}>Pojemność: {(containerSize*100).toFixed(2)}%</p>
-                        <button onClick={() => {window.location.reload(true);navigate('/decode'); }}>Od początku</button>
+                        <button onClick={() => {
+                            window.scrollTo(0,0)
+                            window.location.reload(true)
+                            }}>Od początku</button>
                     </>
                 }
                 
