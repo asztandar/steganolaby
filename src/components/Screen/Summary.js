@@ -14,21 +14,15 @@ import { createSteganoImageData } from "../../utils/createSteganoImageData";
 import Canvas2Image from "../../utils/canvas2image";
 
 const handleEncode = async({file, red, green, blue, text}) =>{
-    // console.log("handleEncode: ", file, red, green, blue, text)
     const imageData = await createCanvas(file);
-    // console.log("handleEncode imageData:",imageData)
     /* File to RGB_ARRAY */
 
     const rgbArray = imageRGBArray(imageData);
-    // console.log("handleEncode rgbArray:", rgbArray)
     const rgbArrayBin = imageRGBArrayBin(rgbArray)
-    // console.log("handleEncode rgbArrayBin:", rgbArrayBin)
     /* Text to bin */
     const textBin = text2Bin(text);
-    // console.log("handleEncode textBin:",textBin);
     /* kLSB */
     const encodeBMP = kLSB(rgbArrayBin, red, green, blue, textBin)
-    // console.log("handleEncode encodeBMP: ",  encodeBMP)
     /* Create new image data */
     const steganoImageData = createSteganoImageData(encodeBMP,imageData);
     const newCanvas = await new Promise((resolve,reject)=>{
@@ -45,14 +39,11 @@ const createNewCanvas = async(imageData) =>{
     const canvas = document.createElement("canvas");
     canvas.width = imageData.width;
     canvas.height = imageData.height;
-    // console.log("createNewCanvas canvas:", canvas)
     const context = canvas.getContext("2d");
     context.putImageData(imageData,0,0);
     const image = await new Promise((resolve, reject)=>{
         resolve(canvas)
     });
-    // const image = Canvas2Image.convertToBMP(canvas, canvas.width, canvas.height);
-    // console.log("immmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm:",image)
     return image;
 }
 
@@ -89,14 +80,11 @@ const Summary = () =>{
             setContext({...context, disabled:true})
             setIsLoading(1)
             const canvas = await handleEncode(context)
-            // console.log("handlebuttononclick canvas: ", canvas)
             const image = await new Promise((resolve, reject)=>{
                 resolve(Canvas2Image.convertToBMP(canvas, canvas.width, canvas.height).src);
             })
             setCanvasNew(canvas);
             setImageNew(image);
-            // console.log("handleButtonOnClick url: ", image)
-            // console.log("imageeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee:", imageNew)
         }
     }
 
@@ -117,12 +105,10 @@ const Summary = () =>{
     
     const Summary1 = (canvasNew) => {
         const handleOnClick = () =>{
-            // console.log("pobieranie!aaaaa:");
             const canvas = canvasNew.canvasNew;
             const w = canvas.width;
             const h = canvas.height;
             const type = "bmp";
-            // console.log("canvas:",canvas);
             Canvas2Image.saveAsImage(canvas, w, h, type, "steganolab");
         }
         return (

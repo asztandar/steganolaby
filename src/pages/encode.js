@@ -22,7 +22,6 @@ const Encode = () => {
     });
 
     React.useEffect(()=>{
-        // console.log("context: ", context)
     },[context])
     return (
         <Layout>

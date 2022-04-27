@@ -14,9 +14,7 @@ const Checking = () =>{
     const handleOnClickPin = async(event) =>{
         event.preventDefault();
         if(pin.length > 0){
-            // console.log("pin:",pin)
             axios.post(`https://rodwald.pl/steganolab/api/sprawdzanie.php?pin=${pin}`).then(function(response){
-                // console.log("response:", response.data.data)
                 if(response.data.data != null){
                     setHash(response.data.data.token);
                     alert("poprawny pin");

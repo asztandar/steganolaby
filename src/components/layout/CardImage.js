@@ -1,7 +1,6 @@
 import * as React from "react"
 import * as classess from "@styles/module/summary.module.css";
 const CardImage = (props) => {
-    // console.log("cardImage url: ", props.url)
     return(
         <div className={props.cn}>
             <h1>Grafika:</h1>

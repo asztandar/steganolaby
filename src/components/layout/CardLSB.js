@@ -1,7 +1,6 @@
 import * as React from "react"
 
 const CardLSB = (props) =>{
-    // console.log("CardLSB props: ", props)
     return(
         <div className={props.cn}>
             <h1>LSB:</h1>

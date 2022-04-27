@@ -42,7 +42,6 @@ const Decode = () => {
         const tokenCheck = getCookie("tokenCheck");
         if(tokenCheck !== ""){
             axios.post(`https://rodwald.pl/steganolab/api/token.php?token=${tokenCheck}`).then(function(response){
-                // console.log("response:", response.data.data)
                 if(response.data.data != null){
                     setOkToken(true);
                 }
@@ -55,9 +54,6 @@ const Decode = () => {
         else setAdmin(false);
     },[okToken]);
 
-    // React.useEffect(()=>{
-    //     console.log("context: ", context)
-    // },[context])
     return (
         <Layout>
             <Context.Provider value={[context, setContext]}>
@@ -73,7 +69,7 @@ const Decode = () => {
                 <Lsb />
             </Screen>
             <Screen order="footer_primary" id="summary">
-                <Summary admin={true}/>
+                <Summary admin={admin}/>
             </Screen>
             </Context.Provider>
         </Layout>

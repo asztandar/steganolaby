@@ -19,9 +19,7 @@ const Message = () =>{
 
     React.useEffect(()=>{
         const t2b = text2Bin(input);
-        // console.log("t2b: ",t2b)
         setInputBin(t2b);
-        // console.log("setIB: ", inputBin);
     },[input, inputBin]);
 
     React.useEffect(()=>{

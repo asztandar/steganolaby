@@ -23,7 +23,6 @@ const DragAndDrop = () => {
 
     const handleDragOver = (e) => {
         e.preventDefault();
-        // console.log("over");
         document
             .querySelector(`.${classess.dnd}`)
             .classList.add(`${classess.active}`);
@@ -31,7 +30,6 @@ const DragAndDrop = () => {
 
     const handleDragLeave = (e) => {
         e.preventDefault();
-        // console.log("leave");
         document
             .querySelector(`.${classess.dnd}`)
             .classList.remove(`${classess.active}`);
@@ -40,7 +38,6 @@ const DragAndDrop = () => {
     const handleDrop = async (e) => {
         e.preventDefault();
         e.stopPropagation();
-        // console.log("drop");
         file = e.dataTransfer.files[0];
         checkType();
     };
@@ -91,7 +88,6 @@ const DragAndDrop = () => {
         input.click();
         input.addEventListener("change", (e) => {
             file = e.target.files[0];
-            // console.log(file);
             checkType();
         });
     };

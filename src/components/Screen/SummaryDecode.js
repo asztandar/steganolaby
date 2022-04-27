@@ -19,37 +19,21 @@ const dkLSB = (rgbArrayBin, red, green, blue) => {
         if(blue > 0) textBin = textBin.concat(rgbArrayBin.bBin[i].slice(-blue));
     }
 
-    // console.log("textBin: ", textBin)
-    // console.log("textBin.length: ", textBin.length)
     const textBinArray = [];
     for(let i=0;i<textBin.length;i+=8){
         textBinArray.push(textBin.slice(i,i+8))
     }
-    // console.log("textBinTab:", textBinArray)
     return textBinArray
 
 } 
 
 const textBinArrayToText = (textBinArray) => {
-    console.log("textBinArray:", textBinArray)
     let text = "";
     let i=0;
-    // textBinArray.forEach(element => {
-    //     console.log("element["+i+"]:", element)
-    //     if(element !== "00000000"){
-    //         text = text.concat(String.fromCharCode(parseInt(element, 2)))
-    //     }
-    //     if(element === "00000000") break;
-    //     i++;
-    // });
-
-    while(textBinArray[i] !== "00000000"){
+    while(textBinArray[i] !== "00000000" && textBinArray.length > i){
         text = text.concat(String.fromCharCode(parseInt(textBinArray[i], 2)));
         i++;
     }
-    // console.log("textBinArrayTotext:", text)
-    // console.log("textBinArrayTotext slice:", text.slice(0,-1))
-    // console.log("bin last char: ", text2Bin(text.slice(-1)))
     if(text2Bin(text.slice(-1)) === "00000000") return text.slice(0,-1);
     return text;
 }
@@ -60,7 +44,6 @@ const handleDecode = async({file, red, green, blue}) =>{
     const rgbArrayBin = imageRGBArrayBin(rgbArray);
     const textBinArray = dkLSB(rgbArrayBin, red, green, blue);
     const decodeText = textBinArrayToText(textBinArray);
-    // console.log("zwracam decodeText")
     return decodeText;
 }
 
@@ -85,7 +68,6 @@ const Summary = (props) =>{
 
     React.useEffect(()=>{
         if(isResponse){
-            // console.log("setisloading 2")
             setIsLoading(2);
         }
     }, [isResponse])
@@ -97,19 +79,16 @@ const Summary = (props) =>{
             setContext({...context, disabled:true})
             setIsLoading(1);
             const decodedText =  await handleDecode(context);
-            // console.log("decodedText:", decodedText)
             setMessage(decodedText);
             if(props.admin){
                 const image = await new Promise((res,rej)=>{
                     res(createImage(context.file));
                 });
-                console.log("context.file.size: ", context.file.size)
                 const width = image.width;
                 const height = image.height;
                 const val = (parseInt(context.red) + parseInt(context.green) + parseInt(context.blue));
                 const ret = (val * width * height)/8
                 const sizeContainer = (width*height*val)/(context.file.size*8);
-                // console.log("ret:",ret, "val:",val)
                 setLimit(ret);
                 setContainerSize(sizeContainer);
             }
@@ -118,7 +97,6 @@ const Summary = (props) =>{
     }
 
     const Summary0 = () => {
-        // console.log("context: ", context)
         return(
             <>
                 <h1>Podsumowanie i odkrywanie</h1>
@@ -132,7 +110,6 @@ const Summary = (props) =>{
     }
 
     const Summary1 = () => {
-        // if(text2Bin(message).slice(-8) == "00000000")
         return(
             <>
                 {props.admin === false?
