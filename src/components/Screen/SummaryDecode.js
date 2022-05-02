@@ -122,9 +122,10 @@ const Summary = (props) =>{
                     <>
                         <h1>Odczytana wiadomość oraz pojemność kontenera:</h1>
                         <p className={`${classess.p} ${classess.overflowText}`}>Wiadomość: {message}</p>
+                        <p className={classess.p}>Ilość znaków wiadomości: {message.length}</p>
                         <p className={classess.p}>Pojemność:{Math.floor(limit)} znaków.</p>
                         <p className={classess.p}>Pojemność: {(containerSize*100).toFixed(2)}%</p>
-                        <button onClick={() => {
+                        <button style={{marginBottom: 5}} onClick={() => {
                             window.scrollTo(0,0)
                             window.location.reload(true)
                             }}>Od początku</button>
