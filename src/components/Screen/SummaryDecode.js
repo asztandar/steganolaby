@@ -9,7 +9,6 @@ import { imageRGBArray } from "../../utils/imageRGBArray";
 import { imageRGBArrayBin } from "../../utils/imageRGBArrayBin";
 import { createImage } from "../../utils/createImage";
 import { text2Bin } from "../../utils/text2Bin";
-import { navigate } from "gatsby";
 
 
 const dkLSB = (rgbArrayBin, red, green, blue) => {
